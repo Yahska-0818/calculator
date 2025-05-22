@@ -1,30 +1,104 @@
 body {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     display: flex;
+    min-height: 100vh;
+    min-width: 100vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #94abc2;
     flex-direction: column;
+    gap: 5vh;
+}
+
+.sponsor {
+    display: flex;
+    gap: 1vh;
     align-items: center;
 }
 
-button {
-    padding: 10px;
-    width: 100px;
-    font-size: 20px;
-    width: 150px;
-} 
+img {
+    height: 5vh;
+    width: 5vh;
+    border-radius: 1vh;
+}
+
+.calculator {
+    background-color: #0f171f;
+    border: 1vh solid #0f171f;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 50vh;
+    border-radius: 1vh;
+    gap: 1vh;
+}
 
 .buttons {
     display: flex;
+    margin: 0;
+    height: 43vh;
+    width: 50vh;
+}
+
+.numbers {
+    display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 500px;
+    height: 42vh;
+    width: 40vh;
+    margin: 0;
+}
+.operations {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 10vh;
+    height: 42vh;
 }
 
 p {
-    border: 5px solid blue;
-    padding: 10px;
-    font-size: 20px;
-    width: 500px;
-    height: 50px;
-    text-align: center;
+    margin: 0;
+    background-color: #94abc2;
+    color: #0f171f;
+    padding: 1vh;
+    font-size: 3vh;
+    width: 48vh;
+    height: 6vh;
+    text-align: right;
+}
+
+button {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    color: #94abc2;
+    font-style: normal;
+    font-size: 3vh;
+    background-color: #0f171f;
+}
+
+button:hover {
+    background-color: #94abc2;
+    color: #0f171f;
+}
+
+.numbers button {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 3vh;
+    height: 10.5vh;
+    width: 13.334vh;
+    margin: 0;
+    border: 0;
+}
+
+#backspace {
+    font-size: 2vh;
+}
+
+.operations button {
+    height: 7vh;
+    border: 0;
 }
