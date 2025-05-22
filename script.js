@@ -121,18 +121,25 @@ buttonMulti.addEventListener("click",()=>{
 })
 
 buttonDiv.addEventListener("click",()=>{
-    if (num1 !== "" && num2 !== "") {
-        alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
-        num1 = operate(num1,operator,num2)
-        num2 = ""
+    if (num2 == "0") {
+        alert("You can't divide by 0 fool, try again")
+    } else{
+        if (num1 !== "" && num2 !== "") {
+            alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
+            num1 = operate(num1,operator,num2)
+            num2 = ""
+        }
+        operator = "/"
     }
-    operator = "/"
+
 })
 
 buttonRes.addEventListener("click",()=>{
     if (num1 === "" || num2 === "" || operator === "") {
         alert("Invalid")
-    } else {
+    } else if (num2 == "0") {
+        alert("You can't divide by 0 fool, try again")
+    }else {
         alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
     }
     num1 = ""
