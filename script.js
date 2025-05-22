@@ -94,15 +94,35 @@ button0.addEventListener("click",()=>{
 
 buttonAdd.addEventListener("click",()=>{
     operator = "+"
+    if (num1 !== "" && num2 !== "") {
+        alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
+        num1 = operate(num1,operator,num2)
+        num2 = ""
+    }
 })
 buttonSub.addEventListener("click",()=>{
     operator = "-"
+    if (num1 !== "" && num2 !== "") {
+        alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
+        num1 = operate(num1,operator,num2)
+        num2 = ""
+    }
 })
 buttonMulti.addEventListener("click",()=>{
     operator = "*"
+    if (num1 !== "" && num2 !== "") {
+        alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
+        num1 = operate(num1,operator,num2)
+        num2 = ""
+    }
 })
 buttonDiv.addEventListener("click",()=>{
     operator = "/"
+    if (num1 !== "" && num2 !== "") {
+        alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
+        num1 = operate(num1,operator,num2)
+        num2 = ""
+    }
 })
 buttonRes.addEventListener("click",()=>{
     alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
