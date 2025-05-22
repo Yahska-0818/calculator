@@ -17,6 +17,7 @@ const buttonRes = document.getElementById("=")
 const buttonClear = document.getElementById("clear")
 const buttonBack = document.getElementById("backspace")
 const display = document.getElementById("display")
+const body = document.getElementById("body")
 
 function add(num1,num2) {
     return parseFloat(num1)+parseFloat(num2)
@@ -123,12 +124,16 @@ buttonPeriod.addEventListener("click",()=>{
 })
 
 buttonAdd.addEventListener("click",()=>{
-    if (num1 !== "" && num2 !== "") {
-        num1 = operate(num1,operator,num2)
-        num2 = ""
-    }
-    operator = "+"
-    display.textContent = `${num1} ${operator} ${num2}`
+    if (num1 === "") {
+        display.textContent = "Enter a number first"
+    } else {
+            if (num1 !== "" && num2 !== "") {
+            num1 = operate(num1,operator,num2)
+            num2 = ""
+            }
+            operator = "+"
+            display.textContent = `${num1} ${operator} ${num2}`
+        }
 })
 
 buttonSub.addEventListener("click",()=>{
@@ -145,12 +150,16 @@ buttonSub.addEventListener("click",()=>{
 })
 
 buttonMulti.addEventListener("click",()=>{
-    if (num1 !== "" && num2 !== "") {
-        num1 = operate(num1,operator,num2)
-        num2 = ""
-    }
-    operator = "*"
-    display.textContent = `${num1} ${operator} ${num2}`
+    if (num1===""){
+            display.textContent = "Enter a number first"
+        } else{
+            if (num1 !== "" && num2 !== "") {
+            num1 = operate(num1,operator,num2)
+            num2 = ""
+            }
+            operator = "*"
+            display.textContent = `${num1} ${operator} ${num2}`
+        }
 })
 
 buttonDiv.addEventListener("click",()=>{
@@ -199,3 +208,127 @@ buttonBack.addEventListener("click",()=>{
 })
 
 // Keyboard events
+
+body.addEventListener("keydown",(event)=>{
+    if (event.key == "1") {
+        operator === "" ? num1 += "1" : num2 += "1"
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "2") {
+        operator === "" ? num1 += "2" : num2 += "2"
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "3") {
+        operator === "" ? num1 += "3" : num2 += "3"
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "4") {
+        operator === "" ? num1 += "4" : num2 += "4"
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "5") {
+        operator === "" ? num1 += "5" : num2 += "5"
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "6") {
+        operator === "" ? num1 += "6" : num2 += "6"
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "7") {
+        operator === "" ? num1 += "7" : num2 += "7"
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "8") {
+        operator === "" ? num1 += "8" : num2 += "8"
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "9") {
+        operator === "" ? num1 += "9" : num2 += "9"
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "0") {
+        operator === "" ? num1 += "0" : num2 += "0"
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "c") {
+        num1 = ""
+        num2 = ""
+        operator = ""
+        display.textContent = ``
+    }
+    if (event.key == "Backspace") {
+        operator === "" ? num1 = num1.slice(0,-1) : num2 = num2.slice(0,-1)
+        display.textContent = `${num1} ${operator} ${num2}`
+    }
+    if (event.key == "=" || event.key == "Enter") {
+        if (num1 === "" || num2 === "" || operator === "") {
+        display.textContent = `Invalid`
+        num1 = ""
+        num2 = ""
+        operator = ""
+        } else if (num2 == "0") {
+            display.textContent = "You can't divide by 0 fool, try again"
+            num1 = ""
+            num2 = ""
+            operator = ""
+        } else {
+            display.textContent = `${operate(num1,operator,num2)}`
+            num1 = ""
+            num2 = ""
+            operator = ""
+        }
+    }
+    if (event.key == "+") {
+        if (num1 === "") {
+            display.textContent = "Enter a number first"
+            } 
+            else {
+                if (num1 !== "" && num2 !== "") {
+                num1 = operate(num1,operator,num2)
+                num2 = ""
+            }
+                operator = "+"
+                display.textContent = `${num1} ${operator} ${num2}`
+            }
+    }
+    if (event.key == "-") {
+            if (num1 === "") {
+            display.textContent = "Enter a number first"
+            } else {
+                if (num1 !== "" && num2 !== "") {
+                num1 = operate(num1,operator,num2)
+                num2 = ""
+            }
+                operator = "-"
+                display.textContent = `${num1} ${operator} ${num2}`
+            }
+    }
+    if (event.key == "*") {
+        if (num1===""){
+            display.textContent = "Enter a number first"
+        } else{
+            if (num1 !== "" && num2 !== "") {
+            num1 = operate(num1,operator,num2)
+            num2 = ""
+            }
+            operator = "*"
+            display.textContent = `${num1} ${operator} ${num2}`
+        }
+    }
+    if (event.key == "/") {
+        if (num1 === "") {
+            display.textContent = "Enter a number first"
+        } else {
+            if (num2 == "0") {
+            display.textContent = "You can't divide by 0 fool, try again"
+            } else{
+                if (num1 !== "" && num2 !== "") {
+                    num1 = operate(num1,operator,num2)
+                    num2 = ""
+                }
+                operator = "/"
+                display.textContent = `${num1} ${operator} ${num2}`
+            }
+        }
+    }
+})
