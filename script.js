@@ -14,6 +14,7 @@ const buttonMulti = document.getElementById("*")
 const buttonDiv = document.getElementById("/")
 const buttonRes = document.getElementById("=")
 const buttonClear = document.getElementById("clear")
+const buttonBack = document.getElementById("backspace")
 
 function add(num1,num2) {
     return parseInt(num1)+parseInt(num2)
@@ -100,6 +101,7 @@ buttonAdd.addEventListener("click",()=>{
     }
     operator = "+"
 })
+
 buttonSub.addEventListener("click",()=>{
     if (num1 !== "" && num2 !== "") {
         alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
@@ -108,6 +110,7 @@ buttonSub.addEventListener("click",()=>{
     }
     operator = "-"
 })
+
 buttonMulti.addEventListener("click",()=>{
     if (num1 !== "" && num2 !== "") {
         alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
@@ -116,6 +119,7 @@ buttonMulti.addEventListener("click",()=>{
     }
     operator = "*"
 })
+
 buttonDiv.addEventListener("click",()=>{
     if (num1 !== "" && num2 !== "") {
         alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
@@ -124,11 +128,24 @@ buttonDiv.addEventListener("click",()=>{
     }
     operator = "/"
 })
+
 buttonRes.addEventListener("click",()=>{
-    alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
+    if (num1 === "" || num2 === "" || operator === "") {
+        alert("Invalid")
+    } else {
+        alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
+    }
+    num1 = ""
+    num2 = ""
+    operator = ""
 })
+
 buttonClear.addEventListener("click",()=>{
     num1 = ""
     num2 = ""
     operator = ""
+})
+
+buttonBack.addEventListener("click",()=>{
+    operator === "" ? num1 = num1.slice(0,-1) : num2 = num2.slice(0,-1)
 })
