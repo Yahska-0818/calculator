@@ -15,7 +15,7 @@ const buttonDiv = document.getElementById("/")
 const buttonRes = document.getElementById("=")
 const buttonClear = document.getElementById("clear")
 const buttonBack = document.getElementById("backspace")
-const display = document.getElementById("display") // Use custom event listeners to check for update of num1,num2,operator value and then change the display
+const display = document.getElementById("display")
 
 function add(num1,num2) {
     return parseInt(num1)+parseInt(num2)
@@ -53,6 +53,8 @@ function operate(num1,operator,num2) {
 let num1 = ""
 let num2 = ""
 let operator = ""
+
+// Mouse events
 
 button1.addEventListener("click",()=>{
     operator === "" ? num1 += "1" : num2 += "1"
@@ -180,3 +182,5 @@ buttonBack.addEventListener("click",()=>{
     operator === "" ? num1 = num1.slice(0,-1) : num2 = num2.slice(0,-1)
     display.textContent = `${num1} ${operator} ${num2}`
 })
+
+// Keyboard events
