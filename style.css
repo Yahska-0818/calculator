@@ -30,7 +30,7 @@ img {
     border: 1vh solid #0f171f;
     display: flex;
     flex-direction: column;
-    height: 50vh;
+    min-height: 50vh;
     width: 50vh;
     border-radius: 1vh;
     gap: 1vh;
@@ -39,7 +39,7 @@ img {
 .buttons {
     display: flex;
     margin: 0;
-    height: 43vh;
+    min-height: 43vh;
     width: 50vh;
 }
 
@@ -65,8 +65,9 @@ p {
     padding: 1vh;
     font-size: 3vh;
     width: 48vh;
-    height: 6vh;
+    min-height: 6vh;
     text-align: right;
+    overflow-wrap: anywhere;
 }
 
 button {
