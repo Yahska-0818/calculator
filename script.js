@@ -28,7 +28,9 @@ function multiply(num1,num2) {
 }
 
 function divide(num1,num2) {
-    return parseInt(num1)/parseInt(num2)
+    let num = parseInt(num1)/parseInt(num2)
+    let returnNum = Math.round((num + Number.EPSILON) * 100) / 100
+    return returnNum
 }
 
 function operate(num1,operator,num2) {
@@ -103,7 +105,7 @@ buttonDiv.addEventListener("click",()=>{
     operator = "/"
 })
 buttonRes.addEventListener("click",()=>{
-    console.log(operate(num1,operator,num2))
+    alert(`${parseInt(num1)} ${operator} ${parseInt(num2)} = ${operate(num1,operator,num2)}`)
 })
 buttonClear.addEventListener("click",()=>{
     num1 = ""
