@@ -12,3 +12,10 @@ button {
     justify-content: center;
     gap: 10px;
 }
+
+p {
+    border: 10px solid blue;
+    padding: 10px;
+    font-size: 20px;
+    width: 150px;
+}
