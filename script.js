@@ -8,6 +8,7 @@ const button7 = document.getElementById("7")
 const button8 = document.getElementById("8")
 const button9 = document.getElementById("9")
 const button0 = document.getElementById("0")
+const buttonPeriod = document.getElementById(".")
 const buttonAdd = document.getElementById("+")
 const buttonSub = document.getElementById("-")
 const buttonMulti = document.getElementById("*")
@@ -18,19 +19,21 @@ const buttonBack = document.getElementById("backspace")
 const display = document.getElementById("display")
 
 function add(num1,num2) {
-    return parseInt(num1)+parseInt(num2)
+    return parseFloat(num1)+parseFloat(num2)
 }
 
 function subtract(num1,num2) {
-    return parseInt(num1)-parseInt(num2)
+    return parseFloat(num1)-parseFloat(num2)
 }
 
 function multiply(num1,num2) {
-    return parseInt(num1)*parseInt(num2)
+    let num = parseFloat(num1)*parseFloat(num2)
+    let returnNum = Math.round((num + Number.EPSILON) * 100) / 100
+    return returnNum
 }
 
 function divide(num1,num2) {
-    let num = parseInt(num1)/parseInt(num2)
+    let num = parseFloat(num1)/parseFloat(num2)
     let returnNum = Math.round((num + Number.EPSILON) * 100) / 100
     return returnNum
 }
@@ -106,6 +109,19 @@ button0.addEventListener("click",()=>{
     display.textContent = `${num1} ${operator} ${num2}`
 })
 
+buttonPeriod.addEventListener("click",()=>{
+    if (operator === "") {
+        if (!(num1.includes("."))) {
+            num1 += "."
+        }
+    } else {
+        if (!(num2.includes("."))) {
+            num2 += "."
+        }
+    }
+    display.textContent = `${num1} ${operator} ${num2}`
+})
+
 buttonAdd.addEventListener("click",()=>{
     if (num1 !== "" && num2 !== "") {
         num1 = operate(num1,operator,num2)
@@ -164,10 +180,9 @@ buttonRes.addEventListener("click",()=>{
         operator = ""
     }else {
         display.textContent = `${operate(num1,operator,num2)}`
-        num1 = `${operate(num1,operator,num2)}`
+        num1 = ""
         num2 = ""
         operator = ""
-        display.textContent = `${num1} ${operator} ${num2}`
     }
 })
 
