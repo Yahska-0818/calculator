@@ -114,12 +114,16 @@ buttonAdd.addEventListener("click",()=>{
 })
 
 buttonSub.addEventListener("click",()=>{
-    if (num1 !== "" && num2 !== "") {
+    if (num1 === "") {
+        display.textContent = "Enter a number first"
+    } else {
+        if (num1 !== "" && num2 !== "") {
         num1 = operate(num1,operator,num2)
         num2 = ""
     }
     operator = "-"
     display.textContent = `${num1} ${operator} ${num2}`
+    }
 })
 
 buttonMulti.addEventListener("click",()=>{
@@ -148,14 +152,21 @@ buttonDiv.addEventListener("click",()=>{
 buttonRes.addEventListener("click",()=>{
     if (num1 === "" || num2 === "" || operator === "") {
         display.textContent = `Invalid`
+        num1 = ""
+        num2 = ""
+        operator = ""
     } else if (num2 == "0") {
         display.textContent = "You can't divide by 0 fool, try again"
+        num1 = ""
+        num2 = ""
+        operator = ""
     }else {
         display.textContent = `${operate(num1,operator,num2)}`
+        num1 = `${operate(num1,operator,num2)}`
+        num2 = ""
+        operator = ""
+        display.textContent = `${num1} ${operator} ${num2}`
     }
-    num1 = ""
-    num2 = ""
-    operator = ""
 })
 
 buttonClear.addEventListener("click",()=>{
