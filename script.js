@@ -182,7 +182,7 @@ buttonRes.addEventListener("click",()=>{
         num1 = ""
         num2 = ""
         operator = ""
-    } else if (num2 == "0") {
+    } else if (num2 == "0" && operator === "/") {
         display.textContent = "You can't divide by 0 fool, try again"
         num1 = ""
         num2 = ""
@@ -266,7 +266,7 @@ body.addEventListener("keydown",(event)=>{
         num1 = ""
         num2 = ""
         operator = ""
-        } else if (num2 == "0") {
+        } else if (num2 == "0" && operator === "/") {
             display.textContent = "You can't divide by 0 fool, try again"
             num1 = ""
             num2 = ""
